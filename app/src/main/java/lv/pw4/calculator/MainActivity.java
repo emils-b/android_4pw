@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     float mValueOne, mValueTwo,savedValue;
     boolean Addition, mSubtract, Multiplication, Division, Decimal;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         calculationsTV = (TextView) findViewById(R.id.calculations);
         resultsTV = (TextView)findViewById(R.id.results);
         SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+
 
         Button button0 = findViewById(R.id.button0);
         Button button1 = findViewById(R.id.button1);
@@ -143,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
                 savedValue = sharedPref.getFloat("savedVal",0.0f);
                 if (savedValue == 0.0) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Nothing saved", Toast.LENGTH_SHORT);
+                    toast.show();
                 } else calculationsTV.setText(calculationsTV.getText() + Float.toString(savedValue));
 
             }
